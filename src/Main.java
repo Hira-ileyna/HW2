@@ -10,6 +10,7 @@ public class Main {
         patientList.addPatient(new Patient(347, "Azra", 7, 20));
         patientList.removePatient(124);
         patientList.findPatient(347);
+        System.out.println(patientList.findPatient(684)); // This allows us to see in the console that the test returns true.
         patientList.printList();
 
     }

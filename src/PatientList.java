@@ -8,6 +8,7 @@ public class PatientList {
         }
     }
     private Node head;
+    //If we keep a tail (end node) reference, insertion becomes O(1).
 
     public void addPatient(Patient p){ //O(n)
         Node newNode = new Node(p);
