@@ -64,7 +64,6 @@ public class PatientList {
          Node currentNode = head;
          while(currentNode != null){
              System.out.println(currentNode.data.printPatient());
-             currentNode = currentNode;
              currentNode = currentNode.next;
 
 
