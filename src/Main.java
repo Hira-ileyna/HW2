@@ -14,14 +14,14 @@ public class Main {
         patientList.printList();
 
         TreatmentQueue treatmentQueue = new TreatmentQueue();
-
-        TreatmentRequest a = new TreatmentRequest(123);
-        TreatmentRequest b = new TreatmentRequest(356);
-        TreatmentRequest c = new TreatmentRequest(684);
-        TreatmentRequest d = new TreatmentRequest(347);
-        TreatmentRequest e = new TreatmentRequest(694);
-        TreatmentRequest f = new TreatmentRequest(753);
-        TreatmentRequest g = new TreatmentRequest(505);
+        treatmentQueue.enqueue(new TreatmentRequest(1));
+        treatmentQueue.enqueue(new TreatmentRequest(2));
+        treatmentQueue.enqueue(new TreatmentRequest(3));
+        treatmentQueue.enqueue(new TreatmentRequest(4));
+        treatmentQueue.enqueue(new TreatmentRequest(5));
+        treatmentQueue.enqueue(new TreatmentRequest(6));
+        treatmentQueue.enqueue(new TreatmentRequest(7));
+        treatmentQueue.enqueue(new TreatmentRequest(8));
 
         treatmentQueue.dequeue();
         treatmentQueue.dequeue();
@@ -30,12 +30,11 @@ public class Main {
         treatmentQueue.printQueue();
 
         DischargeStack dischargeStack = new DischargeStack();
-
-        DischargeRecord x = new DischargeRecord(123, 265646);
-        DischargeRecord y = new DischargeRecord(253, 265647);
-        DischargeRecord z = new DischargeRecord(369, 265648);
-        DischargeRecord w = new DischargeRecord(224, 265649);
-        DischargeRecord h = new DischargeRecord(147, 265645);
+        dischargeStack.push(new DischargeRecord(1,System.currentTimeMillis()));
+        dischargeStack.push(new DischargeRecord(2,System.currentTimeMillis()));
+        dischargeStack.push(new DischargeRecord(3,System.currentTimeMillis()));
+        dischargeStack.push(new DischargeRecord(4,System.currentTimeMillis()));
+        dischargeStack.push(new DischargeRecord(5,System.currentTimeMillis()));
 
         dischargeStack.pop();
         dischargeStack.pop();

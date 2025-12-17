@@ -1,9 +1,9 @@
 public class TreatmentQueue {
-    public class Node{
-        TreatmentRequest data;
-        Node next;
+    private class Node{
+        private TreatmentRequest data;
+        private Node next;
 
-        public Node(TreatmentRequest data){
+        private Node(TreatmentRequest data){
             this.data = data;
             this.next = null;
         }
@@ -19,20 +19,20 @@ public class TreatmentQueue {
     }
 
     public boolean isEmpty(){
-        if(front == null){
-            return true;
-        }
-        return false;
+        return front == null;
     }
-
     public void enqueue(TreatmentRequest request){
+        if(request == null){
+            throw new IllegalArgumentException("Request cannot be null.");
+        }
         Node newNode = new Node(request);
         if(isEmpty()){
-            front = rear = newNode;
+            front = newNode;
+            rear = newNode;
         }else {
             rear.next = newNode; //Connect newNode with current last node.
+            rear = newNode; // Move the last equal with rear.
         }
-        rear = newNode; // Move the last equal with rear.
         size++;
     }
     public TreatmentRequest dequeue(){
@@ -50,18 +50,18 @@ public class TreatmentQueue {
     public int size(){
         return size;
     }
-    public String printQueue() {
+    public void printQueue() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
+            return;
 
         }
         Node current = front;
         while (current != null) {
             TreatmentRequest request = current.data;
             System.out.println((" Patient ID: " + request.getPatientId())+
-                    " Arrival Time: " + request.getArrivialTime());
+                    " Arrival Time: " + request.getArrivalTime());
             current = current.next;
         }
-        return "";
     }
 }

@@ -3,6 +3,12 @@ public class DischargeRecord {
     private final long dischargeTime;
 
     DischargeRecord(int patientId, long dischargeId) {
+        if (patientId <= 0) {
+            throw new IllegalArgumentException("patient id should be greater than 0");
+        }
+        if (dischargeId <= 0) {
+            throw new IllegalArgumentException("discharge id should be greater than 0");
+        }
         this.patientId = patientId;
         this.dischargeTime = dischargeId;
     }

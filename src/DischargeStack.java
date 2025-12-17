@@ -1,13 +1,13 @@
-public class DischargeStack <DischargeRecord> {
+public class DischargeStack {
     private class Node {
-        DischargeRecord data;
-        Node next;
-        Node(DischargeRecord data) {
+        private DischargeRecord data;
+        private Node next;
+        private Node(DischargeRecord data) {
             this.data = data;
             this.next = null;
         }
     }
-    public Node top;
+    private Node top;
     private int size;
     public DischargeStack() {
         this.top = null;
@@ -16,7 +16,13 @@ public class DischargeStack <DischargeRecord> {
     public boolean isEmpty() {
         return top == null;
     }
+    public int size() {
+        return size;
+    }
     public void push(DischargeRecord data) {
+        if(data == null) {
+            throw new IllegalArgumentException("Data should not be null");
+        }
         Node newNode = new Node(data);
         newNode.next = top;
         top = newNode;
@@ -44,9 +50,10 @@ public class DischargeStack <DischargeRecord> {
             return;
         }
         Node temp = top;
-        while(temp.next != null) {
+        while(temp != null) {
+            DischargeRecord item = temp.data;
+            System.out.println(item.toString());
             temp = temp.next;
         }
     }
-
 }

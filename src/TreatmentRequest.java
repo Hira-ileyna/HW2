@@ -1,20 +1,22 @@
 public class TreatmentRequest {
     private final int patientId;
-    private final long arrivialTime = System.currentTimeMillis();
+    private final long arrivalTime = System.currentTimeMillis();
 
-    TreatmentRequest(int patientId){
+    public TreatmentRequest(int patientId){
+        if(patientId <= 0){
+            throw new IllegalArgumentException("Patient ID must be greater than 0.");
+        }
         this.patientId = patientId;
     }
     public int getPatientId() {
         return patientId;
     }
-    public long getArrivialTime() {
-        return arrivialTime;
+    public long getArrivalTime() {
+        return arrivalTime;
     }
     @Override
     public String toString(){
         return "TreatmentRequest " + patientId +
-                ", arrivialTime= " + arrivialTime;
+                ", arrivalTime= " + arrivalTime;
     }
-
 }
