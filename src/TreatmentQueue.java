@@ -1,9 +1,11 @@
 public class TreatmentQueue {
     public class Node{
-        Patient data;
+        TreatmentRequest data;
         Node next;
-        public Node(TreatmentRequest data){
 
+        public Node(TreatmentRequest data){
+            this.data = data;
+            this.next = null;
         }
     }
     private Node front;
@@ -25,35 +27,40 @@ public class TreatmentQueue {
 
     public void enqueue(TreatmentRequest request){
         Node newNode = new Node(request);
-        if(rear == null){
+        if(isEmpty()){
             front = rear = newNode;
-            return;
+        }else {
+            rear.next = newNode; //Connect newNode with current last node.
         }
-        rear.next = newNode;
-        rear = newNode;
+        rear = newNode; // Move the last equal with rear.
+        size++;
     }
     public TreatmentRequest dequeue(){
         if(isEmpty()){
             return null;
         }
+        TreatmentRequest request = front.data;
         front = front.next;
+        size--;
         if(front == null){
             rear = null;
         }
-        size--;
-        return null;
+        return request;
     }
     public int size(){
         return size;
     }
-    public String printQueue(){
-        if(isEmpty()){
+    public String printQueue() {
+        if (isEmpty()) {
             System.out.println("Queue is empty");
+
         }
-        Node temp = front;
-        while(temp != null){
-            System.out.print(temp.data.printPatient());
-            temp = temp.next;
+        Node current = front;
+        while (current != null) {
+            TreatmentRequest request = current.data;
+            System.out.println((" Patient ID: " + request.getPatientId())+
+                    " Arrival Time: " + request.getArrivialTime());
+            current = current.next;
         }
         return "";
     }

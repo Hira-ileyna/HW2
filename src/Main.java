@@ -13,5 +13,21 @@ public class Main {
         System.out.println(patientList.findPatient(684)); // This allows us to see in the console that the test returns true.
         patientList.printList();
 
+        TreatmentQueue treatmentQueue = new TreatmentQueue();
+
+        TreatmentRequest a = new TreatmentRequest(123);
+        TreatmentRequest b = new TreatmentRequest(356);
+        TreatmentRequest c = new TreatmentRequest(684);
+        TreatmentRequest d = new TreatmentRequest(347);
+        TreatmentRequest e = new TreatmentRequest(694);
+        TreatmentRequest f = new TreatmentRequest(753);
+        TreatmentRequest g = new TreatmentRequest(505);
+
+        treatmentQueue.dequeue();
+        treatmentQueue.dequeue();
+        treatmentQueue.dequeue();
+
+        treatmentQueue.printQueue();
+
     }
 }
