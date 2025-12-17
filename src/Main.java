@@ -29,5 +29,19 @@ public class Main {
 
         treatmentQueue.printQueue();
 
+        DischargeStack dischargeStack = new DischargeStack();
+
+        DischargeRecord x = new DischargeRecord(123, 265646);
+        DischargeRecord y = new DischargeRecord(253, 265647);
+        DischargeRecord z = new DischargeRecord(369, 265648);
+        DischargeRecord w = new DischargeRecord(224, 265649);
+        DischargeRecord h = new DischargeRecord(147, 265645);
+
+        dischargeStack.pop();
+        dischargeStack.pop();
+
+        dischargeStack.printStack();
+
+
     }
 }
