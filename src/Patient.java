@@ -8,10 +8,10 @@ public class Patient {
 
     }
     public Patient(int id, String name, int severity, int age) {
-        if(severity < 1 || severity > 10){
+        if(severity < 1 || severity > 10){              //This if statement is that severity level of illness is correct.
             System.out.println("Invalid severity");
         }
-        if(age <0){
+        if(age <0){                                     //This if statement provide to protect negative number for age because age cannot be negative.
             System.out.println("Invalid age");
         }
         this.id = id;
@@ -19,7 +19,7 @@ public class Patient {
         this.severity = severity;
         this.age = age;
     }
-    public int getId() {
+    public int getId() {                                 // getter and setter methods provide to that can be use private variables.(Encapsulation)
         return id;
     }
     public void setId(int id) {
@@ -27,7 +27,7 @@ public class Patient {
     }
     public String getName() {
         return name;
-    }//vbvb
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -43,7 +43,7 @@ public class Patient {
     public void setAge(int age) {
         this.age = age;
     }
-    public String printPatient() {
+    public String printPatient() {                         // Print of all patient.
         return ("Patient name: " + name +
                 ", severity: " + severity +
                 ", age: " + age +

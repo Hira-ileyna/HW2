@@ -12,4 +12,3 @@ public class HospitalSystem {
             dischargeStack = dischargeStack;
     }
 }
-//vbvb

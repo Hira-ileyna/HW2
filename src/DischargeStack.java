@@ -18,7 +18,7 @@ public class DischargeStack {
     }
     public int size() {
         return size;
-    }//bvvb
+    }
     public void push(DischargeRecord data) {
         if(data == null) {
             throw new IllegalArgumentException("Data should not be null");

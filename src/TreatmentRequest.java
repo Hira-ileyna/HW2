@@ -7,7 +7,7 @@ public class TreatmentRequest {
             throw new IllegalArgumentException("Patient ID must be greater than 0.");
         }
         this.patientId = patientId;
-    }//vbvb
+    }
     public int getPatientId() {
         return patientId;
     }
