@@ -6,7 +6,7 @@ public class PatientList {
             this.data = data;
             this.next = null;
         }
-    }//
+    }//vb
     private Node head;
     //If we keep a tail (end node) reference, insertion becomes O(1). bunu ablama soralım !
 

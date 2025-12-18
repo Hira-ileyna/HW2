@@ -27,7 +27,7 @@ public class Patient {
     }
     public String getName() {
         return name;
-    }//
+    }//vb
     public void setName(String name) {
         this.name = name;
     }

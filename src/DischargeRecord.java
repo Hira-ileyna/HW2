@@ -14,7 +14,7 @@ public class DischargeRecord {
     }
     public int getPatientId() {
         return patientId;
-    }//
+    }//vbv
     public long getDischargeTime() {
         return dischargeTime;
     }
