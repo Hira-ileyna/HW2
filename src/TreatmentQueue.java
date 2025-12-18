@@ -20,7 +20,7 @@ public class TreatmentQueue {
 
     public boolean isEmpty(){
         return front == null;
-    }//vb
+    }//vbvb
     public void enqueue(TreatmentRequest request){
         if(request == null){
             throw new IllegalArgumentException("Request cannot be null.");
