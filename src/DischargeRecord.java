@@ -18,7 +18,7 @@ public class DischargeRecord {
     public long getDischargeTime() {
         return dischargeTime;
     }
-    @Override
+
     public String toString() {
         return "Patient ID: " + patientId + ", Discharge Time: " + dischargeTime;
     }

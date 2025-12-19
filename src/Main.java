@@ -39,6 +39,7 @@ public class Main {
         dischargeStack.pop();
         dischargeStack.pop();
 
+
         dischargeStack.printStack();
 
 

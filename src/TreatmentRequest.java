@@ -3,7 +3,7 @@ public class TreatmentRequest {
     private final long arrivalTime = System.currentTimeMillis();
 
     public TreatmentRequest(int patientId){
-        if(patientId <= 0){
+        if(patientId <= 0){                             //Invalid Id founded and error decrease.
             throw new IllegalArgumentException("Patient ID must be greater than 0.");
         }
         this.patientId = patientId;
@@ -14,7 +14,6 @@ public class TreatmentRequest {
     public long getArrivalTime() {
         return arrivalTime;
     }
-    @Override
     public String toString(){
         return "TreatmentRequest " + patientId +
                 ", arrivalTime= " + arrivalTime;

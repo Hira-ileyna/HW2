@@ -21,7 +21,7 @@ public class PatientList {
             tail = newNode;                 //End of the list is new node now, update tail.
         }
     }
-    public boolean removePatient(int id){   //O(1)
+    public boolean removePatient(int id){   //O(n)
         if(head == null){                   //If list is empty, return false.
             return false;                   // list is empty.
         }
@@ -32,39 +32,37 @@ public class PatientList {
             }
             return true;                    // Removing is successful!
         }
-        Node prev = head;                   //If removing node is not head, should use prev and current.
-        Node current = head.next;
-        while(current != null){             //Progress to end of the list.
-            if(current.data.getId() == id){ //If ID is same , ID match.
-                prev.next = current.next;   //Next of previous connect to next of current. In conculion, current remove.
-                if(current == tail){        //If removing node is tail, new tail shoul be prev.
-                    tail = prev;
+        else{
+            Node temp = head;               //Walk from beggining with temp,temp is previous of removing because we need a previous.
+            while(temp.next != null){
+                if(temp.next.data.getId() == id){
+                    temp.next = temp.next.next;
+                    return true;
                 }
-                return true;                //Removing is succesfull!
+                temp = temp.next;           // Removing is successful!
             }
-            prev = current;                 //Prev is current.
-            current = current.next;         //Current is current.next.
+            return false;                   //ID couldnt find.
         }
-        return false;                       //Searching ID cannot find.
     }
 
-    public boolean findPatient(int id) { //O(n)
-        Node current = head;
-        while(current != null){
-            if(current.data.getId() == id){
-                return true; //Found.
+    public boolean findPatient(int id) {    //O(n), This method search that given ID.
+        Node current = head;                //Create a current and reference a head.
+        while(current != null){             //In this way, walk from beginning to end.
+            if(current.data.getId() == id){ //If ID match,
+                return true;                //Found.
             }
-            current = current.next;
+            current = current.next;         // Move next of current.
         }
-        return false; //Didn't find.
+        return false;                       //Didn't find.
     }
 
-    public void printList(){ //O(n)
+    public void printList(){                //O(n)
         if(head == null){
             System.out.println("List is empty");
             return;
         }
          System.out.println("List of patient data: ");
+        //Walk from beggining to end and print all patients.
          Node currentNode = head;
          while(currentNode != null){
              System.out.println(currentNode.data.printPatient());
