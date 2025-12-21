@@ -1,16 +1,14 @@
 public class DischargeRecord {
-    private final int patientId;
-    private final long dischargeTime;
+    private final int patientId;                            //This information shouldn't change so we use 'final' keyword.
+    private long dischargeTime;
 
-    DischargeRecord(int patientId, long dischargeId) {
+    public DischargeRecord(int patientId,  long dischargeTime) {
         if (patientId <= 0) {
             throw new IllegalArgumentException("patient id should be greater than 0");
         }
-        if (dischargeId <= 0) {
-            throw new IllegalArgumentException("discharge id should be greater than 0");
-        }
         this.patientId = patientId;
-        this.dischargeTime = dischargeId;
+        this.dischargeTime = dischargeTime;
+
     }
     public int getPatientId() {
         return patientId;

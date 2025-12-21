@@ -9,19 +9,19 @@ public class Main {
         patientList.addPatient(new Patient(684, "İpek", 4, 57));
         patientList.addPatient(new Patient(347, "Azra", 7, 20));
         patientList.removePatient(124);
-        patientList.findPatient(347);
-        System.out.println(patientList.findPatient(684)); // This allows us to see in the console that the test returns true.
+        patientList.findPatient(347).printPatient();
+        System.out.println(patientList.findPatient(684).printPatient()); // This allows us to see in the console that the test returns true.
         patientList.printList();
 
         TreatmentQueue treatmentQueue = new TreatmentQueue();
-        treatmentQueue.enqueue(new TreatmentRequest(1));
-        treatmentQueue.enqueue(new TreatmentRequest(2));
-        treatmentQueue.enqueue(new TreatmentRequest(3));
-        treatmentQueue.enqueue(new TreatmentRequest(4));
-        treatmentQueue.enqueue(new TreatmentRequest(5));
-        treatmentQueue.enqueue(new TreatmentRequest(6));
-        treatmentQueue.enqueue(new TreatmentRequest(7));
-        treatmentQueue.enqueue(new TreatmentRequest(8));
+        treatmentQueue.enqueue(new TreatmentRequest(1, true));
+        treatmentQueue.enqueue(new TreatmentRequest(2,true));
+        treatmentQueue.enqueue(new TreatmentRequest(3,true));
+        treatmentQueue.enqueue(new TreatmentRequest(4,true));
+        treatmentQueue.enqueue(new TreatmentRequest(5,false));
+        treatmentQueue.enqueue(new TreatmentRequest(6,false));
+        treatmentQueue.enqueue(new TreatmentRequest(7,false));
+        treatmentQueue.enqueue(new TreatmentRequest(8,false));
 
         treatmentQueue.dequeue();
         treatmentQueue.dequeue();

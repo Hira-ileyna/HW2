@@ -12,6 +12,7 @@ public class TreatmentQueue {
     private Node rear;                                  //End of queue
     private int size;
 
+
     public TreatmentQueue() {
         this.front = null;
         this.rear = null;
@@ -21,7 +22,7 @@ public class TreatmentQueue {
     public boolean isEmpty(){                           // Is queue empty or not? Checking!
         return front == null;
     }
-    public void enqueue(TreatmentRequest request){      //Add to ending of queue because queues is FIFO. Time complexcity is O(1).
+    public void enqueue(TreatmentRequest request){      //Add to ending of queue. Time complexcity is O(1).
         if(request == null){
             throw new IllegalArgumentException("Request cannot be null.");
         }
@@ -62,4 +63,6 @@ public class TreatmentQueue {
             current = current.next;
         }
     }
+
+
 }

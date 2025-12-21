@@ -9,9 +9,9 @@ public class PatientList {
     }
     private Node head;
     private Node tail;
-    //If we keep a tail (end node) reference, insertion becomes O(1). bunu ablama soralım !
 
-    public void addPatient(Patient p){      //O(1)
+
+    public void addPatient(Patient p){      //Time complexity is O(1)
         Node newNode = new Node(p);
         if(head == null){                   //If list is empty, newNode should be tail and head.
             head = newNode;
@@ -21,7 +21,7 @@ public class PatientList {
             tail = newNode;                 //End of the list is new node now, update tail.
         }
     }
-    public boolean removePatient(int id){   //O(n)
+    public boolean removePatient(int id){   //Time complexity is O(n)
         if(head == null){                   //If list is empty, return false.
             return false;                   // list is empty.
         }
@@ -45,15 +45,19 @@ public class PatientList {
         }
     }
 
-    public boolean findPatient(int id) {    //O(n), This method search that given ID.
+    public Patient findPatient(int id) {    //Time complexity is O(n), This method search that given ID.
         Node current = head;                //Create a current and reference a head.
-        while(current != null){             //In this way, walk from beginning to end.
+        Patient currentPatient = null;
+        while(current != null){             //In this way, traverse from beginning to end.
             if(current.data.getId() == id){ //If ID match,
-                return true;                //Found.
+                currentPatient = current.data;
+                return currentPatient;                //Found.
+
+
             }
             current = current.next;         // Move next of current.
         }
-        return false;                       //Didn't find.
+        return currentPatient;                       //Didn't find.
     }
 
     public void printList(){                //O(n)
