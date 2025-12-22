@@ -1,4 +1,4 @@
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class HospitalSystem {
     private final PatientList patientList = new PatientList();
@@ -9,7 +9,7 @@ public class HospitalSystem {
 
     public void add(Patient patient){
         patientList.addPatient(patient);
-        patientMap.put(patient.getId(), patient);
+
     }
     public void add(TreatmentRequest request){
 
