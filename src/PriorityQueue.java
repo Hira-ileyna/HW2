@@ -22,4 +22,11 @@ public class PriorityQueue {
             return treatmentQueue.dequeue();
     }
 
+    public void printPriorityQueue(){
+        System.out.println("Priority Queue: ");
+        priorityQueue.printQueue();
+        System.out.println("Treatment Queue: ");
+        treatmentQueue.printQueue();
+    }
+
 }

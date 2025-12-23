@@ -30,11 +30,11 @@ public class Main {
         treatmentQueue.printQueue();
 
         DischargeStack dischargeStack = new DischargeStack();
-        dischargeStack.push(new DischargeRecord(1,System.currentTimeMillis()));
-        dischargeStack.push(new DischargeRecord(2,System.currentTimeMillis()));
-        dischargeStack.push(new DischargeRecord(3,System.currentTimeMillis()));
-        dischargeStack.push(new DischargeRecord(4,System.currentTimeMillis()));
-        dischargeStack.push(new DischargeRecord(5,System.currentTimeMillis()));
+        dischargeStack.push(new DischargeRecord(1));
+        dischargeStack.push(new DischargeRecord(2));
+        dischargeStack.push(new DischargeRecord(3));
+        dischargeStack.push(new DischargeRecord(4));
+        dischargeStack.push(new DischargeRecord(5));
 
         dischargeStack.pop();
         dischargeStack.pop();
