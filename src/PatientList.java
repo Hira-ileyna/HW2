@@ -1,5 +1,5 @@
 public class PatientList {
-    public static class Node{
+        public static class Node{
         Patient data;
         Node next;
         public Node(Patient data){
@@ -9,6 +9,7 @@ public class PatientList {
     }
     private Node head;
     private Node tail;
+    private int size;
 
 
     public void addPatient(Patient p){      //Time complexity is O(1)
@@ -20,6 +21,7 @@ public class PatientList {
             tail.next = newNode;            // There, Connect to old tail to new tail.
             tail = newNode;                 //End of the list is new node now, update tail.
         }
+        size++;
     }
     public boolean removePatient(int id){   //Time complexity is O(n)
         if(head == null){                   //If list is empty, return false.
@@ -30,6 +32,7 @@ public class PatientList {
             if(head == null){               //If list is empty, tail should be null.
                 tail = null;
             }
+            size--;
             return true;                    // Removing is successful!
         }
         else{
@@ -58,6 +61,17 @@ public class PatientList {
             current = current.next;         // Move next of current.
         }
         return currentPatient;                       //Didn't find.
+    }
+
+    public Patient[] toArray(){                         //BAK ÖNEMLİ!
+        Patient[] array = new Patient[size];
+        Node current = head;
+        int i = 0;
+        while(current != null){
+            array[i++] = current.data;
+            current = current.next;
+        }
+        return array;
     }
 
     public void printList(){                //O(n)

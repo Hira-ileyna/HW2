@@ -23,6 +23,6 @@ public class TreatmentRequest {
     public String toString(){
         return "TreatmentRequest:  patient ID=" + patientId +
                 ", arrivalTime= " + arrivalTime +
-                ", priorty=" + priority;
+                ", priority=" + priority;
     }
 }
