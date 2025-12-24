@@ -66,6 +66,9 @@ public class Main {
         hospitalSystem.addDischargeRecord(new DischargeRecord(478));
         hospitalSystem.addDischargeRecord(new DischargeRecord(556));
 
+        hospitalSystem.printHospitalSystem();                                   // I noticed during testing that because we added 3 priorities, the output showed "priority queue is empty".
+                                                                                // To make sure the code was working correctly, I tested it one more time in the processTreatmentRequest section.
+
         hospitalSystem.processTreatmentRequest();
         hospitalSystem.processTreatmentRequest();
         hospitalSystem.processTreatmentRequest();
