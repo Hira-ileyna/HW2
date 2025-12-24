@@ -13,8 +13,7 @@ public class DischargeStack {
         this.top = null;
         this.size = 0;
     }
-    public boolean isEmpty() {
-
+    public boolean isEmpty() {                              //Time complexcity is O(1).
         return top == null;
     }        //Check to that is stack empty or not?
     public int size() {

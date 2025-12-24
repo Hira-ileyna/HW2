@@ -7,18 +7,18 @@ public class HospitalSystem {
     private final DischargeStack dischargeStack = new DischargeStack();                 //Stack of that kept discharge records
     private final HashMap <Integer, Patient> patientMap = new HashMap();                //HashMap for quickly searching patients by ID.
 
-    public void addPatient(Patient patient){                                            //method is for that add to new patient in the system.
-        patientList.addPatient(patient);                                                //Add a patient to the list.
+    public void addPatient(Patient patient){                                            //method is for that add to new patient in the system.Time complexity: O(1)
+        patientList.addPatient(patient);                                                //Add a patient to the list.Time complexity: O(1)
         patientMap.put(patient.getId(), patient);                                       //Add the patient to the list by their ID for quick access. Time complexity: O(1)
     }
-    public void addTreatmentRequest(TreatmentRequest request){                          //Method is treatment request adding.
+    public void addTreatmentRequest(TreatmentRequest request){                          //Method is treatment request adding.Time complexity: O(1)
 
-        if(!patientMap.containsKey(request.getPatientId())){                             //This case checks if this patient is present.
+        if(!patientMap.containsKey(request.getPatientId())){                             //This case checks if this patient is present.Time complexity: O(1)
             System.out.println("Didn't add treatment request: Patient ID: " + request.getPatientId() + " not found");
             return;                                                                     //leave from the method
         }
 
-        if (request.isPriority()) {                                                     //If patient is priority
+        if (request.isPriority()) {                                                     //If patient is priority. Time complexity: O(1)
             priorityQueue.enqueue(request);                                             //Add to priority queue.
             System.out.println("Added priority treatment request: Patient ID: " + request.getPatientId());
         } else {                                                                        //If patient isn't priority.
@@ -26,17 +26,17 @@ public class HospitalSystem {
             System.out.println("Added treatment request: Patient ID: " + request.getPatientId());
             }
         }
-    public void addDischargeRecord(DischargeRecord dischargerecord){                     //This method is that adds to discharge record.
-        if(!patientMap.containsKey(dischargerecord.getPatientId())){                     //This case checks if this patient is present.
+    public void addDischargeRecord(DischargeRecord dischargerecord){                     //This method is that adds to discharge record. Time complexity: O(1)
+        if(!patientMap.containsKey(dischargerecord.getPatientId())){                     //This case checks if this patient is present. Time complexity: O(1)
             System.out.println("Didn't add discharge record: Patient ID: " + dischargerecord.getPatientId() + " not found");
             return;                                                                      //If patient isn't here. Leave from the method.
         }
-        dischargeStack.push(dischargerecord);                                            //Add to discharge record to the stack.
+        dischargeStack.push(dischargerecord);                                            //Add to discharge record to the stack. Time complexity: O(1)
         System.out.println("Added Discharge record: Patient ID: " + dischargerecord.getPatientId());
     }
 
     public void processTreatmentRequest(){
-        TreatmentRequest request = priorityQueue.dequeue();                              //Firstly, check priority patients and remove from priority queue.
+        TreatmentRequest request = priorityQueue.dequeue();                              //Firstly, check priority patients and remove from priority queue. Time complexity: O(1)
         if (request == null) {                                                           //If, priority queue is null
             request = treatmentQueue.dequeue();                                          //we will remove from treatment queue.
         }
@@ -44,21 +44,24 @@ public class HospitalSystem {
             System.out.println("No treatment request to process.");                      //No treatment request to process.
             return;                                                                      //If there is no request, leave from method.
         }
-        Patient patient = patientMap.get(request.getPatientId());                        //Find the patient that in the request.
+       Patient patient = patientMap.get(request.getPatientId());                        //Find the patient that in the request.
         if (patient == null) {                                                           //If there is no patient, Print that the patient is not present.
             System.out.println("Patient not found for request: " + request.getPatientId());
             return;
         }
+        DischargeRecord record = new DischargeRecord(patient.getId());                   // After a treatmnet request is processed, create a discharge record and push to the stack. Time complexity is O(1)
+        dischargeStack.push(record);
+
         System.out.println("Processed treatment request: " + request.toString());         //Report to that processed request.
     }
 
-    public static void mergeSortBySeverity(Patient[] array){                              //Merge Sort sorts patients in descending order according to their severity.
+    public static void mergeSortBySeverity(Patient[] array){                              //Merge Sort sorts patients in descending order according to their severity. Time complexity: O(nlogn)
         if(array == null || array.length <= 1)                                            //If array is null or singly element
             return;                                                                       //Return. Because there's nothing to list.
-        Patient[] temp = new Patient[array.length];                                       //We define a temporary array to use during the merge.
+        Patient[] temp = new Patient[array.length];                                       //We define a temporary array to use during the merge. Time complexity: O(n)
         sort(array, temp, 0, array.length - 1);                                 //
     }
-    private static void sort(Patient[] array, Patient[] temp, int low, int high){         //This method performs the divide and sort part of the merge sort.
+    private static void sort(Patient[] array, Patient[] temp, int low, int high){         //This method performs the divide and sort part of the merge sort. Time complexity: O(nlogn)
         if(low >= high){                                                                  //If low == high , this array has a singly element, Also if low > high , this array has empty space.
             return;                                                                       //This situtaion is that happened base-case.
         }
@@ -67,7 +70,7 @@ public class HospitalSystem {
         sort(array, temp, mid + 1, high);                                            //Sort the right half of the list
         merge(array, temp, low, mid, high);                                               //Combine the left half and right half of the list.
     }
-    private static void merge(Patient[] array, Patient[] temp, int low, int mid, int high){ //This method combines patients according to the severity of their condition.
+    private static void merge(Patient[] array, Patient[] temp, int low, int mid, int high){ //This method combines patients according to the severity of their condition. Time complexity: O(nlogn)
         int i = low;                                                                        //Beginning of the left array.
         int j = mid + 1;                                                                    //Beginning of the right array.
         int k = low;                                                                        //Beginning of the temporary array. Start to low.
@@ -89,19 +92,19 @@ public class HospitalSystem {
             array[x] = temp[x];
         }
     }
-    public void printHospitalSystem(){                                                      //Print to all of datas in the system.
+    public void printHospitalSystem(){                                                      //Print to all of datas in the system. Time complexity: O(nlogn)
         System.out.println("Hospital System");
-        patientList.printList();                                                            //Print the patient list
+        patientList.printList();                                                            //Print the patient list. Time complexity: O(n)
         System.out.println("Treatment Queues: ");
-        treatmentQueue.printQueue();                                                        //Print the treatment queue.
+        treatmentQueue.printQueue();                                                        //Print the treatment queue. Time complexity: O(n)
         System.out.println("Priority Queues: ");
-        priorityQueue.printQueue();                                                         //print the priority queue.
+        priorityQueue.printQueue();                                                         //print the priority queue. Time complexity: O(n)
         System.out.println("Discharge Queues: ");
-        dischargeStack.printStack();                                                        //print the discharge stack
+        dischargeStack.printStack();                                                        //print the discharge stack. Time complexity: O(n)
         System.out.println("Sorted Patients by Severity: ");
-        Patient[] array = patientList.toArray();                                            //Convert the patients on the linked list into an array.
-        HospitalSystem.mergeSortBySeverity(array);                                          //Sort the array in descending order of severity.
-        for(int i = 0; i < array.length; i++){                                              //Print the sorted array.
+        Patient[] array = patientList.toArray();                                            //Convert the patients on the linked list into an array. Time complexity: O(n)
+        HospitalSystem.mergeSortBySeverity(array);                                          //Sort the array in descending order of severity. Time complexity: O(nlogn)
+        for(int i = 0; i < array.length; i++){                                              //Print the sorted array. Time complexity: O(n)
             System.out.println(array[i]);
         }
     }

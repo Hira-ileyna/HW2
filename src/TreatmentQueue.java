@@ -19,7 +19,7 @@ public class TreatmentQueue {
         this.size = 0;
     }
 
-    public boolean isEmpty(){                           // Is queue empty or not? Checking!
+    public boolean isEmpty(){                           // Is queue empty or not? Checking! Time complexcity is O(1).
         return front == null;
     }
     public void enqueue(TreatmentRequest request){      //Add to ending of queue. Time complexcity is O(1).
@@ -48,7 +48,7 @@ public class TreatmentQueue {
         }
         return request;                                 //Provide to know which was removed node
     }
-    public int size(){
+    public int size(){                                  //Time complexcity is O(1).
         return size;
     }
     public void printQueue() {                          //prints the entire queue from beginning to end. Time complexcity is O(n).

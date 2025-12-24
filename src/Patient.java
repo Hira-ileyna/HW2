@@ -19,7 +19,7 @@ public class Patient {
         this.severity = severity;
         this.age = age;
     }
-    public int getId() {                                 // getter and setter methods provide to that can be use private variables.(Encapsulation)
+    public int getId() {                                 // getter and setter methods provide to that can be use private variables.
         return id;
     }
     public void setId(int id) {
@@ -48,5 +48,8 @@ public class Patient {
                 ", severity: " + severity +
                 ", age: " + age +
                 ", Id: " + id);
+    }
+    public String toString() {
+        return printPatient();
     }
 }
