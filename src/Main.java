@@ -10,7 +10,7 @@ public class Main {
         patientList.addPatient(new Patient(347, "Azra", 7, 20));
         patientList.removePatient(124);
         patientList.findPatient(347).printPatient();
-        System.out.println(patientList.findPatient(684).printPatient()); // This allows us to see in the console that the test returns true.
+        System.out.println(patientList.findPatient(684).printPatient());            // This allows us to see in the console that the test returns true.
         patientList.printList();
 
         TreatmentQueue treatmentQueue = new TreatmentQueue();
