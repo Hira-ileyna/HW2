@@ -4,9 +4,6 @@ public class Patient {
     private int severity; // severity level of illness(1-10)
     private int age;
 
-    public Patient() {
-
-    }
     public Patient(int id, String name, int severity, int age) {
         if(severity < 1 || severity > 10){              //This if statement is that severity level of illness is correct.
             System.out.println("Invalid severity");

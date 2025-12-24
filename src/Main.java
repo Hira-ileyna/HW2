@@ -10,7 +10,7 @@ public class Main {
         patientList.addPatient(new Patient(347, "Azra", 7, 20));
         patientList.removePatient(124);
         patientList.findPatient(347).printPatient();
-        System.out.println(patientList.findPatient(684).printPatient());            // This allows us to see in the console that the test returns true.
+        System.out.println(patientList.findPatient(684).printPatient());           // This allows us to see in the console that the test returns true.
         patientList.printList();
 
         TreatmentQueue treatmentQueue = new TreatmentQueue();
@@ -30,11 +30,11 @@ public class Main {
         treatmentQueue.printQueue();
 
         DischargeStack dischargeStack = new DischargeStack();
-        dischargeStack.push(new DischargeRecord(1));
-        dischargeStack.push(new DischargeRecord(2));
-        dischargeStack.push(new DischargeRecord(3));
-        dischargeStack.push(new DischargeRecord(4));
-        dischargeStack.push(new DischargeRecord(5));
+        dischargeStack.push(new DischargeRecord(1, System.currentTimeMillis()));
+        dischargeStack.push(new DischargeRecord(2,System.currentTimeMillis()+1000));
+        dischargeStack.push(new DischargeRecord(3,System.currentTimeMillis()+2000));
+        dischargeStack.push(new DischargeRecord(4,System.currentTimeMillis()+3000));
+        dischargeStack.push(new DischargeRecord(5,System.currentTimeMillis()+4000));
 
         dischargeStack.pop();
         dischargeStack.pop();
@@ -63,8 +63,8 @@ public class Main {
         hospitalSystem.addTreatmentRequest(new TreatmentRequest(796, true));
         hospitalSystem.addTreatmentRequest(new TreatmentRequest(822, true));
 
-        hospitalSystem.addDischargeRecord(new DischargeRecord(478));
-        hospitalSystem.addDischargeRecord(new DischargeRecord(556));
+        hospitalSystem.addDischargeRecord(new DischargeRecord(478,System.currentTimeMillis()+5000));
+        hospitalSystem.addDischargeRecord(new DischargeRecord(556,System.currentTimeMillis()+6000));
 
         hospitalSystem.printHospitalSystem();                                   // I noticed during testing that because we added 3 priorities, the output showed "priority queue is empty".
                                                                                 // To make sure the code was working correctly, I tested it one more time in the processTreatmentRequest section.

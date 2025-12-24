@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class HospitalSystem {
-    private final PatientList patientList = new PatientList();                          //Linkedlist of that kept patient.
+    private final PatientList patientList = new PatientList();                          //Linked list of that kept patient.
     private final TreatmentQueue treatmentQueue = new TreatmentQueue();                 //Queue of that kept normal patient.
     private final TreatmentQueue priorityQueue = new TreatmentQueue();                  //Queue of that kept priority patient.
     private final DischargeStack dischargeStack = new DischargeStack();                 //Stack of that kept discharge records
@@ -49,7 +49,7 @@ public class HospitalSystem {
             System.out.println("Patient not found for request: " + request.getPatientId());
             return;
         }
-        DischargeRecord record = new DischargeRecord(patient.getId());                   // After a treatmnet request is processed, create a discharge record and push to the stack. Time complexity is O(1)
+        DischargeRecord record = new DischargeRecord(patient.getId(),System.currentTimeMillis());                   // After a treatment request is processed, create a discharge record and push to the stack. Time complexity is O(1)
         dischargeStack.push(record);
 
         System.out.println("Processed treatment request: " + request.toString());         //Report to that processed request.
@@ -62,8 +62,8 @@ public class HospitalSystem {
         sort(array, temp, 0, array.length - 1);                                 //
     }
     private static void sort(Patient[] array, Patient[] temp, int low, int high){         //This method performs the divide and sort part of the merge sort. Time complexity: O(nlogn)
-        if(low >= high){                                                                  //If low == high , this array has a singly element, Also if low > high , this array has empty space.
-            return;                                                                       //This situtaion is that happened base-case.
+        if(low >= high){                                                                  //If low == high , this array has a one element, Also if low > high , this array has empty space.
+            return;                                                                       //This situation is that happened base-case.
         }
         int mid = low + (high - low)/2;                                                   //Middle point
         sort(array, temp, low, mid);                                                      //Sort the left half of the list
@@ -76,9 +76,9 @@ public class HospitalSystem {
         int k = low;                                                                        //Beginning of the temporary array. Start to low.
         while (i <= mid && j <= high) {                                                     //Compare when both sides have elements.
             if (array[i].getSeverity() >= array[j].getSeverity()) {                         //Since we are sorting in descending order, we need to write the greater than or equal to elements first.
-                temp[k++] = array[i++];                                                     //If we chose letf, we should write to chosing element to the temp[k++].
-            } else {                                                                        //If we chose letf,
-                temp[k++] = array[j++];                                                     //we should write to chosing element to the temp[k++].
+                temp[k++] = array[i++];                                                     //If we chose left, we should write to choosing element to the temp[k++].
+            } else {                                                                        //If we chose left,
+                temp[k++] = array[j++];                                                     //we should write to choosing element to the temp[k++].
             }
         }
         while (i <= mid) {                                                                  //If the right side is finished first,
@@ -104,8 +104,8 @@ public class HospitalSystem {
         System.out.println("Sorted Patients by Severity: ");
         Patient[] array = patientList.toArray();                                            //Convert the patients on the linked list into an array. Time complexity: O(n)
         HospitalSystem.mergeSortBySeverity(array);                                          //Sort the array in descending order of severity. Time complexity: O(nlogn)
-        for(int i = 0; i < array.length; i++){                                              //Print the sorted array. Time complexity: O(n)
-            System.out.println(array[i]);
+        for (Patient patient : array) {                                                    //Print the sorted array. Time complexity: O(n)
+            System.out.println(patient);
         }
     }
 }
