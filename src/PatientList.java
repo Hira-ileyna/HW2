@@ -1,5 +1,6 @@
 public class PatientList {
-        public static class Node{
+
+    public static class Node{
         Patient data;
         Node next;
         public Node(Patient data){
@@ -42,7 +43,6 @@ public class PatientList {
                     if(temp.next == tail){   //If removing node is tail,
                         tail = temp;         //Update to the tail.
                     }
-                    temp.next = temp.next.next;
                     size--;
                     return true;             //Removing is succesfull
                 }
@@ -58,7 +58,7 @@ public class PatientList {
         while(current != null){                         //In this way, traverse from beginning to end.
             if(current.data.getId() == id){             //If ID match,
                 currentPatient = current.data;
-                return currentPatient;                  //Found.
+                return currentPatient;                  //Found. and return object.
 
 
             }
